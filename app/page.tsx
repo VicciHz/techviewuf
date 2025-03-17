@@ -7,21 +7,21 @@ import Footer from "./components/Footer";
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState("03-17");
 
-  const formatDate = (date) => {
+  // Explicitly define 'date' as a Date type
+  const formatDate = (date: Date): string => {
     return date.toISOString().slice(5, 10);
   };
 
-  // Handle the form submission to change the selected date
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const newDate = formData.get("date").slice(5);
+    const formData = new FormData(event.currentTarget);
+    const newDate = formData.get("date")?.toString().slice(5) || ""; // Extract MM-DD format
     setSelectedDate(newDate);
   };
 
   const handleYesterday = () => {
     const date = new Date();
-    date.setDate(date.getDate() - 1); 
+    date.setDate(date.getDate() - 1);
     setSelectedDate(formatDate(date));
   };
 

@@ -2,7 +2,18 @@
 import { useEffect, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 
-// Define types for the props
+// Define the structure of the API response
+interface PriceData {
+  time_start: string;
+  SEK_per_kWh: string;
+}
+
+// Define the structure of formatted data
+interface FormattedPrice {
+  name: string;
+  price: number;
+}
+
 interface ElectricityPriceChartProps {
   year: string;
   date: string;
@@ -10,7 +21,7 @@ interface ElectricityPriceChartProps {
 }
 
 const ElectricityPriceChart: React.FC<ElectricityPriceChartProps> = ({ year, date, place }) => {
-  const [prices, setPrices] = useState<any[]>([]); // Define the type of prices as any[] or better define a proper type
+  const [prices, setPrices] = useState<FormattedPrice[]>([]);
 
   useEffect(() => {
     const fetchPrices = async () => {
@@ -21,10 +32,10 @@ const ElectricityPriceChart: React.FC<ElectricityPriceChartProps> = ({ year, dat
         const response = await fetch(url);
         if (!response.ok) throw new Error("Failed to fetch data");
 
-        const data = await response.json();
+        const data: PriceData[] = await response.json();
         console.log("API Response:", data);
 
-        const formattedData = data.map((item) => ({
+        const formattedData: FormattedPrice[] = data.map((item: PriceData) => ({
           name: item.time_start.substring(11, 16), // Extract HH:mm
           price: parseFloat(item.SEK_per_kWh),
         }));

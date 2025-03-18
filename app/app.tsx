@@ -72,7 +72,6 @@ export default function Home() {
           Tomorrow
         </button>
       </div>
-      <Footer />
     </div>
   );
 }

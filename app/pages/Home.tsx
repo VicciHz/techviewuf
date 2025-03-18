@@ -8,7 +8,6 @@ import Footer from "../components/Footer";
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState("03-18");
 
-  // Explicitly define 'date' as a Date type
   const formatDate = (date: Date): string => {
     return date.toISOString().slice(5, 10);
   };
@@ -16,7 +15,7 @@ export default function Home() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const newDate = formData.get("date")?.toString().slice(5) || ""; // Extract MM-DD format
+    const newDate = formData.get("date")?.toString().slice(5) || "";
     setSelectedDate(newDate);
   };
 
@@ -72,7 +71,7 @@ export default function Home() {
           Tomorrow
         </button>
       </div>
-      <Footer />
+      <Footer /> 
     </div>
   );
 }

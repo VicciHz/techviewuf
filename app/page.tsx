@@ -1,11 +1,11 @@
-import Home from "./pages"; // Ensure this path is correct
-import Footer from "./components/Footer"; // Ensure this path is correct
+// app/page.tsx
+import Home from "./pages/Home";  
+import Footer from "./components/Footer";
 
 export default function HomePage() {
   return (
     <div>
       <Home />
-      <Footer />
     </div>
   );
 }

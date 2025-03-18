@@ -22,7 +22,7 @@ export default function Footer() {
 
         {/* Login & Register Buttons */}
         <div className="flex space-x-4 mt-2 md:mt-0">
-          <Link href="./pages/login.tsx">
+          <Link href="./pages/login">
             <button className="px-3 py-1 text-sm bg-[#69e49a] text-white rounded-md hover:bg-[#55c580] transition">
               Login
             </button>

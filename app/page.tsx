@@ -3,7 +3,6 @@
 import { useState } from "react";
 import ElectricityPriceChart from "./components/ElectricityPriceChart";
 import Footer from "./components/Footer";
-import LoginButton from "./components/login";
 
 export default function Home() {
   const [selectedDate, setSelectedDate] = useState("03-17");

@@ -6,7 +6,7 @@ import Footer from "./components/Footer";
 
 
 export default function Home() {
-  const [selectedDate, setSelectedDate] = useState("03-17");
+  const [selectedDate, setSelectedDate] = useState("03-18");
 
   // Explicitly define 'date' as a Date type
   const formatDate = (date: Date): string => {

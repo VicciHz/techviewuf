@@ -1,14 +1,9 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Home from "./app";
 
-import { Home } from './pages/app'
-
-const page = () => {
+export default function Page() {
   return (
-    <View>
+    <div>
       <Home />
-    </View>
-  )
+    </div>
+  );
 }
-
-export default page

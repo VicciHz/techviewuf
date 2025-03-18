@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import ElectricityPriceChart from "../components/ElectricityPriceChart";
-import Footer from "../components/Footer";
+import ElectricityPriceChart from "./components/ElectricityPriceChart";
+import Footer from "./components/Footer";
 
 
 export default function Home() {
